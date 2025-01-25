@@ -4,6 +4,8 @@ import RecentOrders from 'components/sections/dashboard/recent-orders';
 import Reports from 'components/sections/dashboard/reports';
 import TopCards from 'components/sections/dashboard/top-cards';
 import TopSelling from 'components/sections/dashboard/top-selling';
+import Table2 from 'components/sections/dashboard/recent-orders/table2';
+import Table3 from 'components/sections/dashboard/recent-orders/table3';
 
 const Dashboard = () => {
   return (
@@ -17,12 +19,18 @@ const Dashboard = () => {
       <Grid item xs={12} md={5}>
         <Analytics />
       </Grid>
-      <Grid item xs={12} md={7}>
-        {/* <RecentOrders /> */}
+      <Grid item xs={12} md={4}>
+        <RecentOrders />
       </Grid>
-      <Grid item xs={12} md={5}>
-        {/* <TopSelling /> */}
+      <Grid item xs={2} md={4}>
+        <Table2 />
       </Grid>
+      <Grid item xs={2} md={4}>
+        <Table3 />
+      </Grid>
+      {/* <Grid item xs={12} md={5}>
+        <TopSelling />
+      </Grid> */}
     </Grid>
   );
 };

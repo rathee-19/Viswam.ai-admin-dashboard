@@ -12,7 +12,7 @@ export const topCardsData: TopCard[] = [
     id: 1,
     icon: 'mage:heart-fill',
     title: 'Total Interns',
-    count: '100,000',
+    count: '100,000+',
     iconColor: 'secondary.main',
     iconBg: 'transparent.secondary.main',
   },

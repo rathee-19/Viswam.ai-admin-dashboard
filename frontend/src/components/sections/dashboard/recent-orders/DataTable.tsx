@@ -28,24 +28,37 @@ const actions = [
 ];
 
 const columns: GridColDef<(typeof rows)[number]>[] = [
+  // {
+  //   field: '__check__',
+  //   headerName: '',
+  //   width: 40,
+  //   sortable: false,
+  //   disableColumnMenu: true,
+  // },
+  // {
+  //   field: 'id',
+  //   headerName: 'Tracking no',
+  //   editable: false,
+  //   align: 'left',
+  //   flex: 2,
+  //   minWidth: 120,
+
+  // },
   {
-    field: '__check__',
-    headerName: '',
-    width: 40,
-    sortable: false,
-    disableColumnMenu: true,
-  },
-  {
-    field: 'id',
-    headerName: 'Tracking no',
+
+    field: 'rank',
+    headerName: 'Rank',
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 120,
+    minWidth:100,
+
+
   },
+
   {
     field: 'product',
-    headerName: 'Product Name',
+    headerName: 'Name',
     editable: false,
     align: 'left',
     flex: 2,
@@ -56,12 +69,12 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     renderCell: (params) => {
       return (
         <Stack height={1} spacing={1.5} alignItems="center" justifyContent="flex-start">
-          <Image
+          {/* <Image
             src={params.row.product.image}
             height={30}
             width={30}
             sx={{ objectFit: 'cover', borderRadius: 1.5 }}
-          />
+          /> */}
           <Typography variant="caption" fontWeight={600}>
             {params.row.product.name}
           </Typography>
@@ -70,116 +83,116 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     },
     sortComparator: (v1, v2) => v1.localeCompare(v2),
   },
-  {
-    field: 'price',
-    headerName: 'Price',
-    headerAlign: 'left',
-    editable: false,
-    flex: 1,
-    minWidth: 140,
-    renderCell: (params) => (
-      <Typography variant="caption">
-        {formatNumber(params.value, {
-          style: 'currency',
-          currency: 'USD',
-          maximumFractionDigits: 2,
-        })}
-      </Typography>
-    ),
-  },
+  // {
+  //   field: 'price',
+  //   headerName: 'Price',
+  //   headerAlign: 'left',
+  //   editable: false,
+  //   flex: 1,
+  //   minWidth: 140,
+  //   renderCell: (params) => (
+  //     <Typography variant="caption">
+  //       {formatNumber(params.value, {
+  //         style: 'currency',
+  //         currency: 'USD',
+  //         maximumFractionDigits: 2,
+  //       })}
+  //     </Typography>
+  //   ),
+  // },
   {
     field: 'inStock',
-    headerName: 'In Stock',
+    headerName: 'Points',
     editable: false,
     align: 'left',
     flex: 2,
     minWidth: 140,
   },
-  {
-    field: 'totalOrder',
-    headerName: 'Total Order',
-    editable: false,
-    headerAlign: 'left',
-    align: 'left',
-    flex: 2,
-    minWidth: 140,
-    renderCell: (params) => (
-      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
-        <Chip label={params.value} size="small" color="secondary" sx={{ borderRadius: 1.75 }} />
-      </Stack>
-    ),
-  },
-  {
-    field: 'pending',
-    headerName: 'Pending',
-    headerAlign: 'left',
-    align: 'left',
-    editable: false,
-    flex: 1,
-    minWidth: 140,
-    renderCell: (params) => (
-      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
-        <Chip label={params.value} size="small" color="warning" sx={{ borderRadius: 1.75 }} />
-      </Stack>
-    ),
-  },
-  {
-    field: 'canceled',
-    headerName: 'Canceled',
-    headerAlign: 'left',
-    align: 'left',
-    editable: false,
-    flex: 1,
-    minWidth: 140,
-    renderCell: (params) => (
-      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
-        <Chip label={params.value} size="small" color="error" sx={{ borderRadius: 1.75 }} />
-      </Stack>
-    ),
-  },
-  {
-    field: 'delevered',
-    headerName: 'Delevered',
-    headerAlign: 'left',
-    align: 'left',
-    editable: false,
-    flex: 1,
-    minWidth: 140,
-    renderCell: (params) => (
-      <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
-        <Chip label={params.value} size="small" color="success" sx={{ borderRadius: 1.75 }} />
-      </Stack>
-    ),
-  },
-  {
-    field: 'balance',
-    headerName: 'Balance',
-    headerAlign: 'right',
-    align: 'right',
-    editable: false,
-    flex: 1,
-    minWidth: 100,
-    renderCell: (params) => (
-      <Typography variant="caption">
-        {formatNumber(params.value, {
-          style: 'currency',
-          currency: 'USD',
-          maximumFractionDigits: 2,
-        })}
-      </Typography>
-    ),
-  },
-  {
-    field: 'action',
-    headerAlign: 'right',
-    align: 'right',
-    editable: false,
-    sortable: false,
-    flex: 1,
-    minWidth: 100,
-    renderHeader: () => <ActionMenu actions={actions} />,
-    renderCell: () => <ActionMenu actions={actions} />,
-  },
+  // {
+  //   field: 'totalOrder',
+  //   headerName: 'Total Order',
+  //   editable: false,
+  //   headerAlign: 'left',
+  //   align: 'left',
+  //   flex: 2,
+  //   minWidth: 140,
+  //   renderCell: (params) => (
+  //     <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
+  //       <Chip label={params.value} size="small" color="secondary" sx={{ borderRadius: 1.75 }} />
+  //     </Stack>
+  //   ),
+  // },
+  // {
+  //   field: 'pending',
+  //   headerName: 'Pending',
+  //   headerAlign: 'left',
+  //   align: 'left',
+  //   editable: false,
+  //   flex: 1,
+  //   minWidth: 140,
+  //   renderCell: (params) => (
+  //     <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
+  //       <Chip label={params.value} size="small" color="warning" sx={{ borderRadius: 1.75 }} />
+  //     </Stack>
+  //   ),
+  // },
+  // {
+  //   field: 'canceled',
+  //   headerName: 'Canceled',
+  //   headerAlign: 'left',
+  //   align: 'left',
+  //   editable: false,
+  //   flex: 1,
+  //   minWidth: 140,
+  //   renderCell: (params) => (
+  //     <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
+  //       <Chip label={params.value} size="small" color="error" sx={{ borderRadius: 1.75 }} />
+  //     </Stack>
+  //   ),
+  // },
+  // {
+  //   field: 'delevered',
+  //   headerName: 'Delevered',
+  //   headerAlign: 'left',
+  //   align: 'left',
+  //   editable: false,
+  //   flex: 1,
+  //   minWidth: 140,
+  //   renderCell: (params) => (
+  //     <Stack direction="column" alignItems="flex-start" justifyContent="center" height={1}>
+  //       <Chip label={params.value} size="small" color="success" sx={{ borderRadius: 1.75 }} />
+  //     </Stack>
+  //   ),
+  // },
+  // {
+  //   field: 'balance',
+  //   headerName: 'Balance',
+  //   headerAlign: 'right',
+  //   align: 'right',
+  //   editable: false,
+  //   flex: 1,
+  //   minWidth: 100,
+  //   renderCell: (params) => (
+  //     <Typography variant="caption">
+  //       {formatNumber(params.value, {
+  //         style: 'currency',
+  //         currency: 'USD',
+  //         maximumFractionDigits: 2,
+  //       })}
+  //     </Typography>
+  //   ),
+  // },
+  // {
+  //   field: 'action',
+  //   headerAlign: 'right',
+  //   align: 'right',
+  //   editable: false,
+  //   sortable: false,
+  //   flex: 1,
+  //   minWidth: 100,
+  //   renderHeader: () => <ActionMenu actions={actions} />,
+  //   renderCell: () => <ActionMenu actions={actions} />,
+  // },
 ];
 
 interface TaskOverviewTableProps {
@@ -216,7 +229,7 @@ const DataTable = ({ searchText }: TaskOverviewTableProps) => {
       slots={{
         pagination: DataGridFooter,
       }}
-      checkboxSelection
+      // checkboxSelection
       pageSizeOptions={[4]}
     />
   );

@@ -15,6 +15,7 @@ import {
 
 interface RowsProps {
   id: number | string;
+  rank: number;
   product: { name: string; image: string };
   price: number;
   totalOrder: number;
@@ -28,7 +29,8 @@ interface RowsProps {
 export const rows: RowsProps[] = [
   {
     id: '#1001',
-    product: { name: 'Camera Lens', image: CameraLens },
+    rank: 1,
+    product: { name: 'Rohan', image: CameraLens },
     price: 178,
     totalOrder: 325,
     inStock: 1236,
@@ -39,7 +41,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1002',
-    product: { name: 'Black Sleep Dress', image: NightDress },
+    rank: 2,
+    product: { name: 'Pratham', image: NightDress },
     price: 14,
     totalOrder: 153,
     inStock: 720,
@@ -50,7 +53,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1003',
-    product: { name: 'Argan Oil', image: ArganOil },
+    rank: 3,
+    product: { name: 'Ronit', image: ArganOil },
     price: 21,
     totalOrder: 225,
     inStock: 940,
@@ -61,7 +65,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1004',
-    product: { name: 'EAU DE Parfum', image: Parfum },
+    rank: 4,
+    product: { name: 'Yo Yo', image: Parfum },
     price: 32,
     totalOrder: 280,
     inStock: 940,
@@ -72,7 +77,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1005',
-    product: { name: 'iPhone 12', image: iPhone },
+    rank: 5,
+    product: { name: 'Pandey Ji', image: iPhone },
     price: 987,
     totalOrder: 450,
     inStock: 850,
@@ -83,7 +89,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1006',
-    product: { name: 'Laptop', image: Laptop },
+    rank: 6,
+    product: { name: 'Systum', image: Laptop },
     price: 1200,
     totalOrder: 150,
     inStock: 200,
@@ -94,7 +101,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1007',
-    product: { name: 'Smartwatch', image: SmartWatch },
+    rank: 7,
+    product: { name: 'Halo', image: SmartWatch },
     price: 249,
     totalOrder: 320,
     inStock: 400,
@@ -105,7 +113,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1008',
-    product: { name: 'Tablet', image: Tablet },
+    rank: 8,
+    product: { name: 'Hola', image: Tablet },
     price: 450,
     totalOrder: 220,
     inStock: 300,
@@ -116,7 +125,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1009',
-    product: { name: 'NIKE Shoes', image: Nike },
+    rank: 9,
+    product: { name: 'Bhusi', image: Nike },
     price: 87,
     totalOrder: 290,
     inStock: 720,
@@ -127,7 +137,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1010',
-    product: { name: 'Bluetooth Speaker', image: Speaker },
+    rank: 10,
+    product: { name: 'Encore', image: Speaker },
     price: 99,
     totalOrder: 600,
     inStock: 1000,
@@ -138,7 +149,8 @@ export const rows: RowsProps[] = [
   },
   {
     id: '#1011',
-    product: { name: 'DSLR Camera', image: DSLR },
+    rank: 11,
+    product: { name: 'Abj', image: DSLR },
     price: 1500,
     totalOrder: 100,
     inStock: 120,
@@ -148,8 +160,9 @@ export const rows: RowsProps[] = [
     balance: 150000,
   },
   {
-    id: '#1012',
-    product: { name: 'Drone', image: Drone },
+    id: '#1012',    
+    rank: 12,
+    product: { name: 'Calm', image: Drone },
     price: 899,
     totalOrder: 140,
     inStock: 160,

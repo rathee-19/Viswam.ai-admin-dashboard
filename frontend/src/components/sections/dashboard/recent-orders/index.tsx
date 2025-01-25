@@ -25,10 +25,10 @@ const RecentOrders = () => {
         justifyContent="space-between"
       >
         <Typography variant="h6" color="text.secondary">
-          Recent Orders
+          Top data collectors 
         </Typography>
 
-        <TextField
+        {/* <TextField
           variant="filled"
           size="small"
           placeholder="Search here"
@@ -42,7 +42,7 @@ const RecentOrders = () => {
               </InputAdornment>
             ),
           }}
-        />
+        /> */}
       </Stack>
 
       <Box mt={{ xs: 1.5, sm: 0.75 }} height={305} flex={1}>
