@@ -14,22 +14,22 @@ const MainLayout = ({ children }: React.PropsWithChildren) => {
 
   return (
     <Stack>
-      <Sidebar
+      {/* <Sidebar
         expand={expand}
         mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen}
         drawerWidth={drawerWidth}
         miniDrawerWidth={miniDrawerWidth}
-      />
+      /> */}
       <Box component="main" flexGrow={1} sx={{ overflowX: 'hidden' }}>
-        <Topbar
+        {/* <Topbar
           expand={expand}
           mobileOpen={mobileOpen}
           setExpand={setExpand}
           setMobileOpen={setMobileOpen}
           drawerWidth={drawerWidth}
           miniDrawerWidth={miniDrawerWidth}
-        />
+        /> */}
         <Box mt={12}>{children}</Box>
         <Footer />
       </Box>

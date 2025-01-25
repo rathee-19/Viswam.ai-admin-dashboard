@@ -26,17 +26,17 @@ const AnalyticsData = [
   {
     id: 1,
     value: 60,
-    name: 'Sale',
+    name: 'Cultural Data',
   },
   {
     id: 2,
     value: 45,
-    name: 'Distribute',
+    name: 'Audio Data',
   },
   {
     id: 3,
     value: 35,
-    name: 'Return',
+    name: 'Telugu Tokens',
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const AnalyticsData = [
 const Analytics = () => {
   return (
     <Paper sx={{ px: 0, height: 410 }}>
-      <Stack mt={-0.5} px={3.75} alignItems="center" justifyContent="space-between">
+      <Stack mt={0.5} px={3.75} alignItems="center" justifyContent="space-between">
         <Typography variant="h6" color="text.secondary" zIndex={1000}>
           Analytics
         </Typography>
@@ -56,7 +56,7 @@ const Analytics = () => {
         <ActionMenu actions={actions} />
       </Stack>
 
-      <AnalyticsChart data={AnalyticsData} sx={{ mt: -5.5, mx: 'auto', width: 300, height: '370px !important' }} />
+      <AnalyticsChart data={AnalyticsData} sx={{ mt: -7.5, mx: 'auto', width: 300, height: '400px !important' }} />
     </Paper>
   );
 };

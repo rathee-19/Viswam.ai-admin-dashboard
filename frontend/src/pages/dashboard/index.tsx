@@ -18,10 +18,10 @@ const Dashboard = () => {
         <Analytics />
       </Grid>
       <Grid item xs={12} md={7}>
-        <RecentOrders />
+        {/* <RecentOrders /> */}
       </Grid>
       <Grid item xs={12} md={5}>
-        <TopSelling />
+        {/* <TopSelling /> */}
       </Grid>
     </Grid>
   );

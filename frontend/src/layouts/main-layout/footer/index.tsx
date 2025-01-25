@@ -13,10 +13,10 @@ const Footer = () => {
       letterSpacing={0.5}
       fontWeight={500}
     >
-      Made with ❤️ by{' '}
+      {/* Made with ❤️ by{' '}
       <Link href="https://themewagon.com/" target="_blank" rel="noreferrer" fontWeight={600}>
         {'ThemeWagon'}
-      </Link>
+      </Link> */}
     </Typography>
   );
 };
