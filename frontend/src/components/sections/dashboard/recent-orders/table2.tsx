@@ -1,19 +1,19 @@
-import { useState, ChangeEvent } from 'react';
+// import { useState, ChangeEvent } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconifyIcon from 'components/base/IconifyIcon';
-import DataTable from './DataTable';
+// import InputAdornment from '@mui/material/InputAdornment';
+// import IconifyIcon from 'components/base/IconifyIcon';
+// import DataTable from './DataTable';
 
 const Table2 = () => {
-  const [searchText, setSearchText] = useState('');
+  // const [searchText, setSearchText] = useState('');
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
-  };
+  // const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   setSearchText(e.target.value);
+  // };
 
   return (
     <Paper sx={{ height: { xs: 418, sm: 370 }, overflow: 'hidden' }}>
@@ -46,7 +46,7 @@ const Table2 = () => {
       </Stack>
 
       <Box mt={{ xs: 1.5, sm: 0.75 }} height={305} flex={1}>
-        <DataTable searchText={searchText} />
+        {/* <DataTable searchText={searchText} /> */}
       </Box>
     </Paper>
   );
