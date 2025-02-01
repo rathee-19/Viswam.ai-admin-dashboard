@@ -1,9 +1,10 @@
+import os
 from sqlmodel import create_engine, Session
 from models import User, DataCollection, Activity
 from datetime import datetime, timedelta
 
 # Database URL (replace with your actual database URL)
-DATABASE_URL = "sqlite:///./test.db"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Create the engine
 engine = create_engine(DATABASE_URL)
