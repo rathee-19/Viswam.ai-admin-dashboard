@@ -199,12 +199,12 @@ interface TaskOverviewTableProps {
   searchText: string;
 }
 
-const DataTable = ({ searchText }: TaskOverviewTableProps) => {
+const DataTable = () => {
   const apiRef = useGridApiRef<GridApi>();
 
-  useEffect(() => {
-    apiRef.current.setQuickFilterValues(searchText.split(/\b\W+\b/).filter((word) => word !== ''));
-  }, [searchText]);
+  // useEffect(() => {
+  //   apiRef.current.setQuickFilterValues(searchText.split(/\b\W+\b/).filter((word) => word !== ''));
+  // }, [searchText]);
 
   return (
     <DataGrid

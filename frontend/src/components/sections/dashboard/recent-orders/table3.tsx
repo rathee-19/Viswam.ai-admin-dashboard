@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 // import InputAdornment from '@mui/material/InputAdornment';
 // import IconifyIcon from 'components/base/IconifyIcon';
-// import DataTable from './DataTable';
+import DataTable from './DataTable';
 
 const Table3 = () => {
   // const [searchText, setSearchText] = useState('');
@@ -46,7 +46,7 @@ const Table3 = () => {
       </Stack>
 
       <Box mt={{ xs: 1.5, sm: 0.75 }} height={305} flex={1}>
-        {/* <DataTable searchText={searchText} /> */}
+        <DataTable />
       </Box>
     </Paper>
   );
