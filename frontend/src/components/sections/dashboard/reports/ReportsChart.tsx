@@ -22,12 +22,12 @@ echarts.use([
   CanvasRenderer,
 ]);
 
-interface ClientChartProps {
+interface ReportsChartProps {
   data: number[];
   sx?: SxProps;
 }
 
-const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
+const ReportsChart: React.FC<ReportsChartProps> = ({ data, ...rest }) => {
   const theme = useTheme();
   let isTopOffset: boolean;
 
@@ -66,7 +66,7 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
           _params: Array<{ data: number }>,
           _dom: HTMLElement,
           _rect: unknown,
-          size: { contentSize: [number, number]; viewSize: [number, number] },
+          size: { contentSize: [number, number]; viewSize: [number, number] }
         ) => {
           const [x, y] = point;
           const tooltipHeight = size.contentSize[1];
@@ -188,7 +188,7 @@ const ReportsChart = ({ data, ...rest }: ClientChartProps) => {
         },
       ],
     }),
-    [theme, data],
+    [theme, data]
   );
 
   return <ReactEchart echarts={echarts} option={option} {...rest} />;

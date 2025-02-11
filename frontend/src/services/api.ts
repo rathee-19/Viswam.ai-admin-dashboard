@@ -19,3 +19,9 @@ export const fetchRecentActivities = async () => {
   const response = await api.get('/recent-activities');
   return response.data.recent_activities;
 };
+
+export const fetchTotalDataCollected = async () => {
+    const response = await api.get('/total-data-collected');
+    return response.data.total_data_collected;
+  };
+  

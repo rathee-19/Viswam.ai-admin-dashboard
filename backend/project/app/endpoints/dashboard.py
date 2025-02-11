@@ -40,3 +40,8 @@ async def get_recent_activities(db: Session = Depends(get_session)):
         .all()
     )
     return {"recent_activities": activities}
+
+@router.get("/total-data-collected")
+async def get_total_data_collected(db: Session = Depends(get_session)):
+    total_points = db.query(func.sum(DataCollection.points)).scalar() or 0
+    return {"total_data_collected": total_points}
