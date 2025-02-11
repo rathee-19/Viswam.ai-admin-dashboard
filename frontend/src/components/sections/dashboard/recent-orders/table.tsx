@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import { fetchTopDataCollectors } from '/services/api';
+import { fetchTopDataCollectors } from 'services/api';
 
 interface DataCollector {
   name: string;
