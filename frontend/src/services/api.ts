@@ -24,4 +24,12 @@ export const fetchTotalDataCollected = async () => {
     const response = await api.get('/total-data-collected');
     return response.data.total_data_collected;
   };
+
+
+ 
+
+ export const fetchTopDataCategories = async () => {
+    const response = await axios.get('/api/top-data-categories');
+    return response.data;
+ };
   

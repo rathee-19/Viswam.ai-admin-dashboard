@@ -45,3 +45,17 @@ async def get_recent_activities(db: Session = Depends(get_session)):
 async def get_total_data_collected(db: Session = Depends(get_session)):
     total_points = db.query(func.sum(DataCollection.points)).scalar() or 0
     return {"total_data_collected": total_points}
+
+
+@router.get("/top-data-categories")
+async def get_top_data_categories(db: Session = Depends(get_session)):
+    categories = (
+        db.query(DataCollection.category, func.sum(DataCollection.points).label("total_points"))
+        .group_by(DataCollection.category)
+        .order_by(func.sum(DataCollection.points).desc())
+        .limit(5)
+        .all()
+    )
+    
+    # Format response as a list of dictionaries
+    return {"categories": [{"name": cat, "value": points} for cat, points in categories]}
