@@ -1,19 +1,43 @@
-import { useState, ChangeEvent } from 'react';
+// sections/dashboard/recent-orders/table2.tsx
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import TextField from '@mui/material/TextField';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconifyIcon from 'components/base/IconifyIcon';
-import DataTable from './DataTable';
+import { fetchTopPointEarners } from 'services/api';
 
-const Table2 = () => {
-  const [searchText, setSearchText] = useState('');
+interface PointEarner {
+  name: string;
+  total_points: number;
+}
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
-  };
+const TopPointEarnersTable = () => {
+  const [earners, setEarners] = useState<PointEarner[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchTopPointEarners();
+        setEarners(data);
+      } catch (err) {
+        setError('Failed to load point earners');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
 
   return (
     <Paper sx={{ height: { xs: 418, sm: 370 }, overflow: 'hidden' }}>
@@ -27,29 +51,36 @@ const Table2 = () => {
         <Typography variant="h6" color="text.secondary">
           Top Point Earners
         </Typography>
-
-        {/* <TextField
-          variant="filled"
-          size="small"
-          placeholder="Search here"
-          value={searchText}
-          onChange={handleInputChange}
-          sx={{ width: 1, maxWidth: { xs: 260, sm: 240 } }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconifyIcon icon="prime:search" />
-              </InputAdornment>
-            ),
-          }}
-        /> */}
       </Stack>
 
       <Box mt={{ xs: 1.5, sm: 0.75 }} height={305} flex={1}>
-        <DataTable searchText={searchText} />
+        {loading ? (
+          <Typography align="center">Loading...</Typography>
+        ) : error ? (
+          <Typography color="error" align="center">{error}</Typography>
+        ) : (
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Name</TableCell>
+                  <TableCell align="right">Total Points</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {earners.map((earner, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{earner.name}</TableCell>
+                    <TableCell align="right">{earner.total_points}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        )}
       </Box>
     </Paper>
   );
 };
 
-export default Table2;
+export default TopPointEarnersTable;
