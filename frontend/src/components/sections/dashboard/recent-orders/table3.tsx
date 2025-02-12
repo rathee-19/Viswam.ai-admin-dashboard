@@ -1,4 +1,3 @@
-// sections/dashboard/recent-orders/table3.tsx
 import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -11,6 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import { fetchRecentActivities } from 'services/api';
+import { getUsers } from 'services/api';
 
 interface Activity {
   name: string;
@@ -27,11 +27,12 @@ const RecentActivitiesTable = () => {
     const loadData = async () => {
       try {
         setLoading(true);
-        const data = await fetchRecentActivities();
+        // const data = await fetchRecentActivities(); // Fetch the data from the API
+        const data = await getUsers();
         setActivities(data);
       } catch (err) {
         setError('Failed to load recent activities');
-        console.error(err);
+        console.error('Error fetching activities:', err);
       } finally {
         setLoading(false);
       }

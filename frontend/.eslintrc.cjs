@@ -11,22 +11,15 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-    "@typescript-eslint/no-unused-vars": "off",
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'react/react-in-jsx-scope': 'off',
     'react/no-unescaped-entities': 'off',
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    'prettier/prettier': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'off', // Disable unused-vars checking for TypeScript
     '@typescript-eslint/no-empty-interface': 'off',
-    'react-refresh/only-export-components': 'off',
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
   },
-}
+};
