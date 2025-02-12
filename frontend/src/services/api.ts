@@ -8,7 +8,8 @@ const api = axios.create({
 
 export const getUsers = async () => {
   const response = await api.get('users/get-users');
-  return response.data.usres;
+  console.log("this is the data form get_users api", response.data);
+  return response.data;
 };
 
 // Fetch function examples

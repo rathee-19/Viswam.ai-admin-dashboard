@@ -11,10 +11,19 @@ logger = logging.getLogger(__name__)
 
 @router.get("/get-users", response_model=list[UserResponse])
 async def get_users(db: AsyncSession = Depends(get_session)):
-    logger.info("get_users")
-    result = await db.execute(select(User))
-    users = result.scalars().all()
-    return users
+    # logger.info("get_users")
+    try:
+        print("hellllllllllllllllloooooooooooo")
+        result = await db.execute(select(User))
+        users = result.scalars().all()
+        await db.commit()  # Even though it's not modifying, we ensure the session is committed.
+        print ("these are the users", users)
+        return users
+    
+    except Exception as e:
+        await db.rollback()  # Explicitly handle rollbacks in case of error
+        logger.error(f"Error: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 
 @router.post("/", response_model=UserResponse)
 async def create_user(user: UserCreate, db: AsyncSession = Depends(get_session)):

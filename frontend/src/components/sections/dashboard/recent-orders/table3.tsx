@@ -23,12 +23,15 @@ const RecentActivitiesTable = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+
+  const [users, setUsers] =useState<string | null>(null);
   useEffect(() => {
     const loadData = async () => {
       try {
         setLoading(true);
         // const data = await fetchRecentActivities(); // Fetch the data from the API
         const data = await getUsers();
+        // console.log("this is the data form get_users api", data);
         setActivities(data);
       } catch (err) {
         setError('Failed to load recent activities');
@@ -40,6 +43,7 @@ const RecentActivitiesTable = () => {
 
     loadData();
   }, []);
+  // setUsers("users");
 
   return (
     <Paper sx={{ height: { xs: 418, sm: 370 }, overflow: 'hidden' }}>
@@ -75,7 +79,7 @@ const RecentActivitiesTable = () => {
                   <TableRow key={index}>
                     <TableCell>{activity.name}</TableCell>
                     <TableCell>{activity.activity}</TableCell>
-                    <TableCell>{new Date(activity.timestamp).toLocaleString()}</TableCell>
+                    {/* <TableCell>{new Date(activity.timestamp).toLocaleString()}</TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>
