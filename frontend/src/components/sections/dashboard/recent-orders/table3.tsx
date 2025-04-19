@@ -9,33 +9,33 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
-import { fetchRecentActivities } from 'services/api';
+import { fetchRecentUsers } from 'services/api';
 import { getUsers } from 'services/api';
 
-interface Activity {
+interface Users {
   name: string;
-  activity: string;
+  user: string;
   timestamp: string;
 }
 
-const RecentActivitiesTable = () => {
-  const [activities, setActivities] = useState<Activity[]>([]);
+const RecentUsersTable = () => {
+  const [Users, setUsers] = useState<Users[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
 
-  const [users, setUsers] =useState<string | null>(null);
+  // const [users, setUsers] =useState<string | null>(null);
   useEffect(() => {
     const loadData = async () => {
       try {
         setLoading(true);
-        // const data = await fetchRecentActivities(); // Fetch the data from the API
+        // const data = await fetchRecentUsers(); // Fetch the data from the API
         const data = await getUsers();
         // console.log("this is the data form get_users api", data);
-        setActivities(data);
+        setUsers(data);
       } catch (err) {
-        setError('Failed to load recent activities');
-        console.error('Error fetching activities:', err);
+        setError('Failed to load recent Users');
+        console.error('Error fetching Users:', err);
       } finally {
         setLoading(false);
       }
@@ -55,7 +55,7 @@ const RecentActivitiesTable = () => {
         justifyContent="space-between"
       >
         <Typography variant="h6" color="text.secondary">
-          Recent Activities
+          Recent Users
         </Typography>
       </Stack>
 
@@ -70,16 +70,16 @@ const RecentActivitiesTable = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>Name</TableCell>
-                  <TableCell>Activity</TableCell>
+                  <TableCell>Users</TableCell>
                   <TableCell>Time</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {activities.map((activity, index) => (
+                {Users.map((user, index) => (
                   <TableRow key={index}>
-                    <TableCell>{activity.name}</TableCell>
-                    <TableCell>{activity.activity}</TableCell>
-                    {/* <TableCell>{new Date(activity.timestamp).toLocaleString()}</TableCell> */}
+                    <TableCell>{user.name}</TableCell>
+                    <TableCell>{user.email}</TableCell>
+                    {/* <TableCell>{new Date(user.timestamp).toLocaleString()}</TableCell> */}
                   </TableRow>
                 ))}
               </TableBody>
@@ -91,4 +91,4 @@ const RecentActivitiesTable = () => {
   );
 };
 
-export default RecentActivitiesTable;
+export default RecentUsersTable;

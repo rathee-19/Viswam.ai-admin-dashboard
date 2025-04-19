@@ -3,8 +3,15 @@ from fastapi import FastAPI
 from app.endpoints import user, dashboard
 from fastapi.middleware.cors import CORSMiddleware  # Import CORSMiddleware
 
+from app.db import init_db
+
 app = FastAPI()
 
+@app.on_event("startup")
+async def on_startup():
+    await init_db()
+
+    
 @app.get("/")
 def home():
     return {"message": "FastAPI PostgreSQL API"}

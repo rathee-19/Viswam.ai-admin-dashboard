@@ -40,4 +40,12 @@ export const topCardsData: TopCard[] = [
     iconColor: 'primary.main',
     iconBg: 'transparent.primary.main',
   },
+  {
+    id: 5,
+    icon: 'heroicons:briefcase-20-solid',
+    title: 'Avg streak',
+    count: 12,
+    iconColor: 'primary.main',
+    iconBg: 'transparent.primary.main',
+  },
 ];
